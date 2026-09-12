@@ -1,0 +1,89 @@
+{
+  "control_domains": {
+    "identity-and-access": {
+      "frameworks": {
+        "CSA-CCM": ["IAM", "AIS"],
+        "ISO-27001": ["A.5", "A.8"],
+        "SOC-2": ["CC6"],
+        "ISAE": ["Access Controls"]
+      },
+      "roles": [
+        "iam-admin",
+        "platform-admin"
+      ]
+    },
+
+    "change-management": {
+      "frameworks": {
+        "CSA-CCM": ["CCC"],
+        "ISO-27001": ["A.8"],
+        "SOC-2": ["CC8"],
+        "ISAE": ["Change Management"]
+      },
+      "roles": [
+        "compute-administrator",
+        "network-administrator",
+        "storage-administrator",
+        "database-administrator",
+        "container-administrator",
+        "kubernetes-administrator",
+        "load-balancer-administrator",
+        "dns-administrator",
+        "connectivity-administrator"
+      ]
+    },
+
+    "logging-and-monitoring": {
+      "frameworks": {
+        "CSA-CCM": ["LOG", "SEF"],
+        "ISO-27001": ["A.8", "A.5"],
+        "SOC-2": ["CC7"],
+        "ISAE": ["Monitoring"]
+      },
+      "roles": [
+        "audit-admin",
+        "security-admin"
+      ]
+    },
+
+    "network-security": {
+      "frameworks": {
+        "CSA-CCM": ["IVS", "TVM"],
+        "ISO-27001": ["A.8"],
+        "SOC-2": ["CC6", "CC7"],
+        "ISAE": ["Logical Access", "Network Security"]
+      },
+      "roles": [
+        "network-admin",
+        "security-admin",
+        "connectivity-admin"
+      ]
+    },
+
+    "data-protection": {
+      "frameworks": {
+        "CSA-CCM": ["DSP", "DLP"],
+        "ISO-27001": ["A.8"],
+        "SOC-2": ["CC6", "C1"],
+        "ISAE": ["Data Protection"]
+      },
+      "roles": [
+        "storage-admin",
+        "database-admin",
+        "security-admin"
+      ]
+    },
+
+    "audit-and-assurance": {
+      "frameworks": {
+        "CSA-CCM": ["LOG", "GRC"],
+        "ISO-27001": ["A.5", "A.8"],
+        "SOC-2": ["CC2", "CC4", "CC7"],
+        "ISAE": ["Evidence", "Monitoring"]
+      },
+      "roles": [
+        "audit-admin"
+      ]
+    }
+  }
+}
