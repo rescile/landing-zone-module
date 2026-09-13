@@ -1,0 +1,10 @@
+[module]
+name = "Landing Zone Module"
+url = "https://github.com/rescile/landing-zone-module"
+version = "0.0.8"
+description = "The AWS provider module adds the configuration schemas and properties required by a landing zone blueprint to interact with and manage AWS infrastructure APIs."
+rescile_version = ">=0.1.201"
+
+# List of other modules this module depends on.
+[dependencies]
+ucs-base = "https://github.com/rescile/ucs-base"
