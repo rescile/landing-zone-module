@@ -50,25 +50,23 @@ The landing zone module codifies and automates five essential pillars:
 
 Depending on the stack, hybrid landing zone templates generally take one of three architectural shapes:
 
-| Model | Description | Common Stack / Tooling |
-| :--- | :--- | :--- |
-| **Cloud-Native Native Extensions** | Public cloud provider frameworks extended back into private data centers using proprietary edge appliances or managed control planes. | AWS Control Tower + Outposts, Azure Landing Zones + Azure Arc, Google Cloud Anthos |
-| **Multi-Cloud IaC Blueprints** | Vendor-neutral Infrastructure-as-Code modules that orchestrate cloud APIs alongside private hypervisors via uniform code bases. | HashiCorp Terraform / OpenTofu modules, Pulumi, Ansible |
-| **Declarative Controller / GitOps** | Continuous reconciliation controllers that treat private and public environments as unified, state-driven declarative targets based on a central Source of Truth. | Kubernetes Operators, Crossplane, Custom Configuration Servers / GitOps engines |
-
+| Model                               | Description                                                                                                                                                       | Common Stack / Tooling                                                             |
+|:----------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------- |
+| **Cloud-Native Native Extensions**  | Public cloud provider frameworks extended back into private data centers using proprietary edge appliances or managed control planes.                             | AWS Control Tower + Outposts, Azure Landing Zones + Azure Arc, Google Cloud Anthos |
+| **Multi-Cloud IaC Blueprints**      | Vendor-neutral Infrastructure-as-Code modules that orchestrate cloud APIs alongside private hypervisors via uniform code bases.                                   | HashiCorp Terraform / OpenTofu modules, Pulumi, Ansible                            |
+| **Declarative Controller / GitOps** | Continuous reconciliation controllers that treat private and public environments as unified, state-driven declarative targets based on a central Source of Truth. | Kubernetes Operators, Crossplane, Custom Configuration Servers / GitOps engines    |
 
 ## Resources
 
-| Resource            | Description                                                               |
-| ------------------- | ------------------------------------------------------------------------- |
-| `subscirption`      | tbd. |
-| `dns`               | tbd. |
-| `firewall`          | tbd. |
-| `location`          | tbd. |
-| `network`           | tbd. |
-| `observability`     | tbd. |
-| `role`              | tbd. |
-
+| Resource        | Description |
+| --------------- | ----------- |
+| `subscirption`  | tbd.        |
+| `dns`           | tbd.        |
+| `firewall`      | tbd.        |
+| `location`      | tbd.        |
+| `network`       | tbd.        |
+| `observability` | tbd.        |
+| `role`          | tbd.        |
 
 ## Repository Structure
 
@@ -81,25 +79,24 @@ Depending on the stack, hybrid landing zone templates generally take one of thre
 ├── intput/
 │   └── ...
 ├── models/
-│   ├── account.toml
-│   ├── gateway.toml
-│   ├── key.toml
-│   ├── location.toml
-│   ├── network.toml
-│   ├── record.toml
-│   ├── resolver.toml
-│   ├── router.toml
-│   ├── subnet.toml
-│   ├── vault.toml
-│   ├── zone.toml
-│   └── subscription.toml
+│   ├── account.jsonnet
+│   ├── gateway.jsonnet
+│   ├── key.jsonnet
+│   ├── location.jsonnet
+│   ├── network.jsonnet
+│   ├── record.jsonnet
+│   ├── resolver.jsonnet
+│   ├── router.jsonnet
+│   ├── subnet.jsonnet
+│   ├── vault.jsonnet
+│   ├── zone.jsonnet
+│   └── subscription.jsonnet
 ├── output/
 │   └── ...
 └── module.toml
 ```
 
 The exact structure may evolve as additional resources are introduced. The intention is to keep resources independently understandable and make it straightforward for contributors to add new AWS capabilities.
-
 
 ## Why should you use this module?
 
@@ -141,7 +138,7 @@ A typical contribution should include:
 ```text
 models/
 └── aws_<resource>/
-    ├── resource.toml
+    ├── resource.jsonnet
     ├── schema.toml
     └── ...
 ```
