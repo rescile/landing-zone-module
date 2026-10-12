@@ -6,8 +6,8 @@ local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
 local parent = std.asciiUpper(std.join('-', std.slice(std.split(source.name, '-'), 0, 3)));
 
-local secret = ["compute", "database", "iam", "vpn"];
-local certificate = ["compute", "storage", "database", "kubernetes", "loadbalancer", "dns", "iam", "vpn", "connectivity"];
+//local secret = ["compute", "database", "iam", "vpn"];
+//local certificate = ["compute", "storage", "database", "kubernetes", "loadbalancer", "dns", "iam", "vpn", "connectivity"];
 
 
 rescile.createResource(
@@ -19,8 +19,8 @@ rescile.createResource(
   properties={
     class: '{{- params.solution | lower -}}',
     token: provider.portfolio,
-    secret: secret,
-    certificate: certificate,
+    secret: '{{ params.secrets }}',
+    certificate: '{{ params.certificates }}',
     description: 'The {{ value }} vault is a secure, managed storage container or service at ' + provider.name + ' designed to safeguard sensitive digital assets.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
