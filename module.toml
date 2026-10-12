@@ -78,7 +78,7 @@ default = '172.16.0.1/30'
 [params.vault_type]
 description = "A vault type refers to the specific classification and operational purpose of a secure, isolated storage or management container used to protect sensitive assets."
 required = true
-default = 'software' // or hardware
+default = 'software'
 
 [params.secrets]
 description = "Secrets are sensitive digital credentials, tokens, and cryptographic keys that grant access to systems, databases, APIs, and services."
