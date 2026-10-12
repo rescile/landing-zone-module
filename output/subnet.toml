@@ -10,7 +10,7 @@ template = """
     {
     "resource": {
         "aws_subnet": {
-        "{{- origin_resource.name -}}": {
+        "test": {
             "vpc_id": "tbd",
             "cidr_block": "cidr",
             "availability_zone": "tbd",
