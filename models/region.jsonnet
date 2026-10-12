@@ -1,6 +1,11 @@
 local rescile = import 'rescile/v1/rescile.libsonnet';
+local providerLib = import 'provider.libsonnet';
 local source = std.extVar('origin_resource');
+local target = std.asciiLower(std.split(source.name, '-')[0]);
+local providerName = if std.isArray(target) then target[0].name else target;
+local provider = providerLib(std.asciiLower(providerName));
 local parent = std.asciiUpper(std.join('-', std.slice(std.split(source.name, '-'), 0, 3)));
+
 
 rescile.createResource(
   origin='subscription',
@@ -11,6 +16,7 @@ rescile.createResource(
   properties={
     class: '{{- origin_resource.class | lower -}}',
     city: '{{ value | trim }}',
+    region_code: provider.region['{{ value | trim }}'],
     country: '{{ locations[value | trim].country | default(value="") }}',
     timezone: '{{ locations[value | trim].tz | default(value="") }}',
     iata: '{{ locations[value | trim].iata | default(value="") }}',
