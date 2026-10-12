@@ -5,7 +5,7 @@ relation = "DEPLOYED_AS"
 resource_type = "avaloq_source_artifact"
 name = "tf-{{ origin_resource.name }}"
 filename = "{{ origin_resource.name }}.json"
-mimetype = "text/json"
+mimetype = "application/json"
 template = """
     {
     "resource": {
