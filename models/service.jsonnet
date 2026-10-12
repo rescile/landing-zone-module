@@ -13,7 +13,7 @@ rescile.createResource(
   name=std.asciiLower(provider.name)  + '-{{- value | lower -}}-service',
   properties={
     class: '{{- value | lower -}}',
-    accounts: '{{ accounts }}',
+    accounts: '{{ origin_resource.environment }}',
     compute: '{{- params.compute_instances -}}',
     kubernetes: '{{- params.kubernetes_cluster -}}',
     database: '{{- params.database_instances -}}',
