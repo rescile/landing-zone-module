@@ -23,5 +23,5 @@ rescile.createResource(
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
 ) + {
-env: '{% set acc = [x.account for x in origin_resource] %}{% set reg = [x.region for x in origin_resource] %}{% for a in acc %}{% for r in reg %}{{ a | lower }}-{{ r | lower }}"{% if not loop.last %},{% endif %}{% endfor %}{% endfor %}',
+env: '{% set acc = [x.account for x in origin_resource] %}{% set reg = [x.region for x in origin_resource] %}{% for a in acc %}{% for r in reg %}"{{ a | lower }}-{{ r | lower }}"{% if not loop.last %},{% endif %}{% endfor %}{% endfor %}',
 }
