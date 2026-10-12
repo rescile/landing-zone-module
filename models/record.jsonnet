@@ -11,7 +11,7 @@ local provider = providerLib(std.asciiLower(providerName));
     createFrom=rescile.createFromProperty('record', asName='record'),
     resourceType='record',
     relationType='DERIVED_FROM',
-    name='{{- params.tenant | lower -}}--{{- value | lower -}}.{{- origin_resource.name | lower -}}',
+    name='{{- value | lower -}}.{{- origin_resource.name | lower -}}',
     properties={
       class: '{{- value | lower -}}',
       record_type: "A",
