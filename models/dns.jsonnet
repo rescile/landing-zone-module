@@ -16,7 +16,7 @@ local class = std.asciiLower(source.class);
     properties={
       class: 'private',
       login: ['dns-administrator', 'auditor'],
-      zone: ['management.local', 'observability.local', 'service.local'],
+      zone: '{{ params.prvdns }}',
       description: 'The Domain Name Service by ' + provider.name + ' provides name to address resolution for internal applications.',
       created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
     },
@@ -32,7 +32,7 @@ local class = std.asciiLower(source.class);
     properties={
       class: 'public',
       login: ['dns-administrator', 'auditor'],
-      zone: ['mydomain.com'],
+      zone: '{{ params.pubdns }}',
       description: 'The public Domain Name Service by ' + provider.name + ' provides name to address resolution for internet services.',
       created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
     },

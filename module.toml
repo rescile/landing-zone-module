@@ -89,3 +89,13 @@ rescile_version = ">=0.1.201"
 #description = "Certificates are cryptographic credentials used to establish trusted, encrypted communication channels and verify the identity of users, services, workloads, and devices."
 #required = true
 #default = ["compute", "storage", "database", "kubernetes", "loadbalancer", "dns", "iam", "vpn", "connectivity"]
+
+#[params.prvdns]
+#description = "tbd."
+#required = true
+#default = ['management.local', 'observability.local', 'service.local']
+
+#[params.pubdns]
+#description = "tbd."
+#required = true
+#default = ['mydomain.com']
