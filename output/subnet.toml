@@ -9,13 +9,13 @@ template = """
 {
     "resource": {
         "aws_subnet": {
-        "test": {
+        "{{ origin_resource.name }}": {
             "vpc_id": "tbd",
-            "cidr_block": "cidr",
+            "cidr_block": "{{ origin_resource.cidr }}",
             "availability_zone": "tbd",
             "map_public_ip_on_launch": false,
             "tags": {
-              "Solution": "salesforce"
+              "Solution": "{{- params.subscription | lower -}}"
             }
         }
         }
