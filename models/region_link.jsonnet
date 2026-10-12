@@ -7,6 +7,6 @@ rescile.linkResources(
   withResource='network',
   relationType='DEPENDS_ON',
   copyProperties=[
-    { from: 'name', as: 'region' },
+    { from: 'city', as: 'location' },
   ],
 )
