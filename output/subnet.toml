@@ -1,4 +1,4 @@
-origin_resource = "acme_order"
+origin_resource = "subnet"
 
 [[output]]
 resource_type = "aws_subnet"
