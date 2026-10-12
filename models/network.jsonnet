@@ -22,9 +22,7 @@ local provider = providerLib(std.asciiLower(providerName));
       created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
     },
     match=[rescile.eq('class', 'network')]
-  ) + {
-    segments: '{{- params.net | lib(path="network.rhai", function="cidr_split_n", n= params.acc | length) | __rescile_safe_print -}}'
-  },
+  ),
 
   rescile.linkResources(
     origin='region',
@@ -34,4 +32,6 @@ local provider = providerLib(std.asciiLower(providerName));
       { from: 'iata', as: 'location' },
     ],
   )
-]
+] + {
+  segments: '{{- params.net | lib(path="network.rhai", function="cidr_split_n", n= params.acc | length) | __rescile_safe_print -}}'
+}
