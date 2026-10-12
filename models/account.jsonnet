@@ -14,22 +14,18 @@ rescile.createResource(
   name=parent + '-{{ value }}',
   properties={
     class: '{{- origin_resource.class | lower -}}',
-    //environment: '{{- value | lower -}}',
+    environment: '{{- value | lower -}}',
     //template = "Core" # Only AWS
-    environment: std.flattenArrays(
-      std.map(
-        function(account)
-          std.map(
-            function(region)
-              std.asciiLower(account + '-' + region),
-            source.region
-          ),
-        source.account
-      )
-    ),
     provider: std.asciiLower(provider.name),
     service: provider.portfolio,
     description: 'The ' + provider.name + ' ' + provider.decode.account + ' defines an independently manageable IAM security boundary for the {{ origin_resource.name | upper }} subscription that enables a centralized management and grants authorized access to resources, services and configurations.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
-)
+) + {
+env: std.set([
+  std.asciiLower(account + '-' + region)
+  for x in origin_resource
+  for account in x.account
+  for region in x.region
+]),
+}
