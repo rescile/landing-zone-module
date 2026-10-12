@@ -30,6 +30,24 @@ local provider = providerLib(std.asciiLower(providerName));
     match=[rescile.eq('class', 'public')],
   ),
 
+
+
+    rescile.linkResources(
+      origin='zone',
+      withResource='subscription',
+      relationType='DEPENDS_ON',
+      copyProperties=[
+        { from: 'account', as: 'record' },
+      ],
+      match=[{
+        'and': [
+          [rescile.eq('class', 'private'),
+          [rescile.neq('name', 'management.local')],
+          [rescile.neq('name', 'service.local')],
+        ],
+      }],
+    ),
+
   rescile.linkResources(
     origin='zone',
     withResource='subscription',
