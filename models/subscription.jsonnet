@@ -9,9 +9,9 @@ rescile.createResource(
   name=std.asciiUpper(provider.name) + '-{{ params.tenant | upper }}-{{ params.tenant | upper }}',
   properties={
     provider: std.asciiLower(provider.name),
-    class: '{{ params.solution | lower }}',
-    home: 'Zurich',
-    account: ['DEV', 'PROD', 'INT', 'EDU', 'TST'],
+    class: '{{- params.solution | lower -}}',
+    home: '{{- params.hm | lower -}}',
+    account: '{{- params.acc -}}',
     util: ['vault', 'syslog'],
     logging: true,
     auditing: true,

@@ -5,13 +5,87 @@ version = "0.0.1"
 description = "The AWS provider module adds the configuration schemas and properties required by a landing zone blueprint to interact with and manage AWS infrastructure APIs."
 rescile_version = ">=0.1.201"
 
-# [params.solution]
-# description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
-# required = true
-# default = "Finance"
+[params.solution]
+description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
+required = true
+default = "Finance"
 
-# Temp entry for offline development
-# [params.tenant]
-# description = "The tenant represents the organization that owns a service."
-# required = true
-# default = "Corp"
+[params.tenant]
+description = "The tenant represents the organization that owns a service."
+required = true
+default = "Corp"
+
+[params.hm]
+description = "A cloud home or primary region is the specific geographic datacenter location where a user's, organization's, or resource's core account data, metadata, and primary services are officially hosted and anchored."
+required = true
+default = 'Zurich';
+
+[params.acc]
+description = "A cloud account is an isolated administrative container provided by a cloud service provider."
+required = true
+default = ['DEV', 'PROD', 'INT', 'EDU', 'TST'];
+
+[params.net]
+description = "The subscription network defines the cidr for a collection of virtualized networks hosted within a public or private cloud."
+required = true
+default = '10.0.0.0/19';
+
+[params.fw]
+description = "An instance-level firewall provided by cloud platforms enables operators to control inbound and outbound traffic for cloud platforms inlc. virtual machines, containers, and databases."
+required = true
+default = ['default', 'internet'];
+
+[params.subn]
+description = "A subnet is a segmented range of IP addresses within a network and allows to partition a cloud network into smaller, logically isolated sections to control traffic flow, organize workloads, and enforce security boundaries."
+required = true
+default = ['a', 'b'];
+
+[params.gtw]
+description = "A service gateway enables resources in a subnets to connect to other cloud services over a cloud provider's network backbone."
+required = true
+default = ['default'];
+
+[params.compute_instances]
+description = "A compute instance is a server that provides dedicated processing power (CPU), memory (RAM), storage, and networking capacity."
+required = true # can be empty
+default = ['test', 'dev'];
+
+[params.database_instances]
+description = "A DBaaS database instance is a managed database environment with a provider handling the underlying infrastructure, automated backups, patching, scaling, and high availability."
+required = true # can be empty
+default = ['oracle'];
+
+[params.kubernetes_cluster]
+description = "A Kubernetes cluster is a set of node machines—either virtual or physical—that run containerized applications, managed collectively by a centralized control plane."
+required = true # can be empty
+default = ['test', 'dev'];
+
+[params.lb_instances]
+description = "A load balancer instance distributes incoming network traffic across multiple backend servers."
+required = true # can be empty
+default = ['prod'];
+
+[params.communication_channels]
+description = "Communication channels encompass human collaboration and incident response, system-to-human alerting, and human-to-system control planes."
+required = true
+default = ["email", "slack", "pager"];
+
+[params.bgp_network]
+description = "The BGP network is used to exchange routing and reachability information between independent routing domains."
+required = true
+default = '172.16.0.1/30';
+
+[params.vault_type]
+description = "A vault type refers to the specific classification and operational purpose of a secure, isolated storage or management container used to protect sensitive assets."
+required = true
+default = 'software'; // or hardware
+
+[params.secrets]
+description = "Secrets are sensitive digital credentials, tokens, and cryptographic keys that grant access to systems, databases, APIs, and services."
+required = true
+default = ["compute", "database", "iam", "vpn"];
+
+[params.certificates]
+description = "Certificates are cryptographic credentials used to establish trusted, encrypted communication channels and verify the identity of users, services, workloads, and devices."
+required = true
+default = ["compute", "storage", "database", "kubernetes", "loadbalancer", "dns", "iam", "vpn", "connectivity"];

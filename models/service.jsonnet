@@ -5,9 +5,9 @@ local target = source.provider;
 local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
 
-local compute_instances = ['test', 'dev'];
-local database_instances = ['oracle'];
-local kubernetes_cluster = ['test', 'dev'];
+//local compute_instances = ['test', 'dev'];
+//local database_instances = ['oracle'];
+//local kubernetes_cluster = ['test', 'dev'];
 
 rescile.createResource(
   origin='account',
@@ -18,9 +18,9 @@ rescile.createResource(
   properties={
     class: '{{- value | lower -}}',
     accounts: '{{ accounts }}',
-    compute: compute_instances,
-    kubernetes: kubernetes_cluster,
-    database: database_instances,
+    compute: '{{- params.compute_instances -}}',
+    kubernetes: '{{- params.kubernetes_cluster -}}',
+    database: '{{- params.database_instances -}}',
     description: 'The {{ value | lower }} service provides access to a platform operated by {{ origin_resource.provider | lower }}.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },

@@ -4,7 +4,6 @@ local source = std.extVar('origin_resource');
 local target = std.asciiLower(std.split(source.name, '-')[0]);
 local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
-//local class = std.asciiLower(origin_resource.class);
 
 local instances = ['prod'];
 
@@ -15,7 +14,6 @@ rescile.createResource(
   relationType='DEFINED_BY',
   name= std.asciiLower(provider.name) + '-{{ value | lower }}-' + provider.decode.load_balancer,
   properties={
-    //class: class,
     class: 'load_balancer',
     login: ['load_balancer-administrator', 'auditor'],
     component: ["self_managed", "provider_managed"],
