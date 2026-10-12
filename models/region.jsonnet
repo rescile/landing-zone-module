@@ -16,7 +16,7 @@ rescile.createResource(
   properties={
     class: '{{- origin_resource.class | lower -}}',
     city: '{{ value | trim }}',
-    region_code: provider.region['{{ value | trim }}'],
+    region_code: provider.region['-{{ locations[value | trim].city | upper | default(value="") }}'],
     country: '{{ locations[value | trim].country | default(value="") }}',
     timezone: '{{ locations[value | trim].tz | default(value="") }}',
     iata: '{{ locations[value | trim].iata | default(value="") }}',
