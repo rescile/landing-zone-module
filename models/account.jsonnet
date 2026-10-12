@@ -24,7 +24,7 @@ rescile.createResource(
 ) + {
 env: std.set([
   std.asciiLower(account + '-' + region)
-  for x in origin_resource
+  for x in source
   for account in x.account
   for region in x.region
 ]),
