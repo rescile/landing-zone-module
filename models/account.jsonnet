@@ -14,7 +14,7 @@ rescile.createResource(
   name=parent + '-{{ value }}',
   properties={
     class: '{{- origin_resource.class | lower -}}',
-    account: '{{- value | lower -}}',
+    account_name: '{{- value | lower -}}',
     environment: '{{ env }}',
     //template = "Core" # Only AWS
     provider: std.asciiLower(provider.name),

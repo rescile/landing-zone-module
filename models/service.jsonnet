@@ -22,5 +22,5 @@ rescile.createResource(
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
 ) + {
-  accounts: '{{ [x.account for x in origin_resource] | unique }}',
+  accounts: '{{ [x.account_name for x in origin_resource] | unique }}',
 }
