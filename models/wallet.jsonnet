@@ -8,7 +8,7 @@ local parent = std.asciiUpper(std.join('-', std.slice(std.split(source.name, '-'
 
 rescile.createResource(
   origin='service',
-  createFrom=rescile.createFromProperty('accounts', asName='wallet'),
+  createFrom=rescile.createFromProperty('environment', asName='wallet'),
   resourceType='wallet',
   relationType='DERIVED_FROM',
   name=std.asciiLower(provider.name)  + '-{{- params.solution | lower -}}-{{- value | lower -}}-wallet',
