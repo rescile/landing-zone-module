@@ -6,7 +6,7 @@ rescile.createResource(
   origin='resident',
   resourceType='subscription',
   relationType='OWNED_BY',
-  name=std.asciiUpper(provider.name) + '-{{ params.tenant | upper }}-{{ params.tenant | upper }}',
+  name=std.asciiUpper(provider.name) + '-{{ params.tenant | upper }}-{{ params.solution | upper }}',
   properties={
     provider: std.asciiLower(provider.name),
     class: '{{- params.solution | lower -}}',
