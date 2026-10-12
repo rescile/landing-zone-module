@@ -1,13 +1,12 @@
-origin_resource = "subnet"
-relation = "DERIVED_FROM"
+origin_resource = "acme_order"
 
 [[output]]
-resource_type = "avaloq_source_artifact"
-name = "tf-{{ origin_resource.name }}"
+resource_type = "aws_subnet"
+name = "{{ origin_resource.name }}"
 filename = "{{ origin_resource.name }}.json"
 mimetype = "application/json"
-template = '''
-    {
+template = """
+{
     "resource": {
         "aws_subnet": {
         "test": {
@@ -16,10 +15,10 @@ template = '''
             "availability_zone": "tbd",
             "map_public_ip_on_launch": false,
             "tags": {
-              "Name": "salesforce-subnet"
+              "Solution": "salesforce"
             }
         }
         }
     }
-    }
-'''
+}
+"""
