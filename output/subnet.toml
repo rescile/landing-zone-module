@@ -15,7 +15,7 @@ template = """
             "availability_zone": "tbd",
             "map_public_ip_on_launch": false,
             "tags": {
-              "Solution": "{{- params.subscription | lower -}}"
+              "Solution": "{{- params.solution | lower -}}"
             }
         }
         }
