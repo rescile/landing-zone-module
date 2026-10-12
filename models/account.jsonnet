@@ -22,10 +22,5 @@ rescile.createResource(
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
 ) + {
-env: std.set([
-  std.asciiLower(source.account)
-  for x in source
-  //for account in x.account
-  //for region in x.region
-]),
+env: '{% set acc = [x.account for x in origin_resource] %}{% set reg = [x.region for x in origin_resource] %}{% for a in acc %}{% for r in reg %}{{ a }}-{{ r }}{% endfor %}{% endfor %}',
 }
