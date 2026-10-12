@@ -1,0 +1,25 @@
+origin_resource = "subnet"
+relation = "DEPLOYED_AS"
+
+[[output]]
+resource_type = "avaloq_source_artifact"
+name = "tf-{{ origin_resource.name }}"
+filename = "{{ origin_resource.name }}.json"
+mimetype = "text/json"
+template = """
+    {
+    "resource": {
+        "aws_subnet": {
+        "{{- origin_resource.name -}}": {
+            "vpc_id": "tbd",
+            "cidr_block": "cidr",
+            "availability_zone": "tbd",
+            "map_public_ip_on_launch": false,
+            "tags": {
+              "Name": "salesforce-subnet"
+            }
+        }
+        }
+    }
+    }
+"""
