@@ -12,6 +12,7 @@ rescile.createResource(
     class: '{{- params.solution | lower -}}',
     home: '{{- params.hm | lower -}}',
     account: '{{- params.acc -}}',
+    region: ['{{- params.hm | capitalize -}}', 'London', 'Paris'],
     util: ['vault', 'syslog'],
     logging: true,
     auditing: true,

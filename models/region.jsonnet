@@ -3,8 +3,8 @@ local source = std.extVar('origin_resource');
 local parent = std.asciiUpper(std.join('-', std.slice(std.split(source.name, '-'), 0, 3)));
 
 rescile.createResource(
-  origin='account',
-  createFrom=rescile.createFromProperty('regions', asName='region'),
+  origin='subscription',
+  createFrom=rescile.createFromProperty('region', asName='region'),
   resourceType='region',
   relationType='DEFINED_BY',
   name=parent +'-{{ locations[value | trim].city | upper | default(value="") }}',
