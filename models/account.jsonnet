@@ -15,7 +15,7 @@ rescile.createResource(
   properties={
     class: '{{- origin_resource.class | lower -}}',
     //environment: '{{- value | lower -}}',
-    environment: '{{- env | lower -}}',
+    environment: '{{ env }}',
     //template = "Core" # Only AWS
     provider: std.asciiLower(provider.name),
     service: provider.portfolio,
