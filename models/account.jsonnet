@@ -23,7 +23,7 @@ rescile.createResource(
   },
 ) + {
 env: std.set([
-  std.asciiLower(source)
+  std.asciiLower(source.account)
   for x in source
   //for account in x.account
   //for region in x.region
