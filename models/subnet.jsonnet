@@ -17,7 +17,7 @@ rescile.createResource(
     cidr: '{%- set count = origin_resource.subnet | length -%}' +
           '{%- set split_cidrs = origin_resource.segment | lib(path="network.rhai", function="cidr_split_n", n=count) -%}' +
           '{{ split_cidrs[property.index] }}',
-    location: provider.region['{{- origin_resource.location -}}'],
+    location: provider.region[source.location],
     availability_zone: '{{- value | lower -}}',
     description: 'Subnet {{ value | upper }} is a logical partition of the {{ params.solution | capitalize }} network, designed to improve network performance, routing efficiency, and security isolation.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
