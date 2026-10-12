@@ -7,7 +7,7 @@ local provider = providerLib(std.asciiLower(providerName));
 
 rescile.createResource(
   origin='account',
-  createFrom=rescile.createFromProperty('service', asName='service'),
+  createFrom=rescile.createFromProperty('environment', asName='service'),
   resourceType='service',
   relationType='DEFINED_BY',
   name=std.asciiLower(provider.name)  + '-{{- value | lower -}}-service',
