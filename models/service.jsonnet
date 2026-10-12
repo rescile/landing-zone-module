@@ -5,10 +5,6 @@ local target = source.provider;
 local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
 
-//local compute_instances = ['test', 'dev'];
-//local database_instances = ['oracle'];
-//local kubernetes_cluster = ['test', 'dev'];
-
 rescile.createResource(
   origin='account',
   createFrom=rescile.createFromProperty('service', asName='service'),

@@ -5,11 +5,6 @@ local target = std.asciiLower(std.split(source.name, '-')[0]);
 local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
 
-local cidr = '10.0.0.0/19';
-//local firewall = ['default', 'internet'];
-//local subnet = ['a', 'b'];
-//local gateway = ['default'];
-
 rescile.createResource(
   origin='service',
   createFrom=rescile.createFromProperty('accounts', asName='network'),
@@ -19,9 +14,6 @@ rescile.createResource(
   properties={
     class: '{{- origin_resource.class | lower -}}',
     segment: '{{- segments[property.index] -}}',
-    //segment: '{%- set count = origin_resource.subnet | length -%}' +
-    //         '{%- set split_cidrs = origin_resource.segment | lib(path="network.rhai", function="cidr_split_n", n=count) -%}' +
-    //         '{{ split_cidrs[property.index] }}',
     firewall: '{{- params.fw -}}',
     subnet: '{{- params.subn -}}',
     gateway: '{{- params.gtw -}}',

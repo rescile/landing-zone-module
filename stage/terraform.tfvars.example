@@ -1,0 +1,55 @@
+aws_region  = "eu-central-2"
+environment = "prod"
+name_prefix = "sf-hyperforce"
+
+# Replace with the real public IP of the Azure VPN Gateway.
+azure_vpn_public_ip = "203.0.113.10"
+
+# Example-only CIDRs. Replace with approved, non-overlapping production CIDRs.
+connectivity_vpc_cidr       = "10.240.0.0/20"
+connectivity_subnet_cidrs   = ["10.240.0.0/24", "10.240.1.0/24"]
+salesforce_vpc_cidr         = "10.241.0.0/20"
+salesforce_endpoint_subnet_cidrs = ["10.241.0.0/24", "10.241.1.0/24"]
+availability_zones          = []
+
+remote_network_cidrs = [
+  "10.20.0.0/16",
+  "10.30.0.0/16",
+]
+
+dns_client_cidrs = [
+  "10.20.0.0/16",
+  "10.30.0.0/16",
+]
+
+onprem_dns_suffix     = "corp.example"
+onprem_dns_server_ips = ["10.20.0.10", "10.20.0.11"]
+azure_dns_suffix      = "azure.example"
+azure_dns_server_ips  = ["10.30.0.10", "10.30.0.11"]
+
+# Salesforce Setup > Private Connect > AWS Regions: copy the inbound service name.
+salesforce_inbound_service_name = "com.amazonaws.vpce.eu-central-2.vpce-svc-REPLACE_ME"
+
+# Exact My Domain FQDN (no https:// and no path).
+salesforce_my_domain = "mycompany.my.salesforce.com"
+
+# Salesforce Setup > Private Connect > AWS Regions: copy the outbound IAM role/principal ARN.
+salesforce_outbound_allowed_principal_arn = "arn:aws:iam::123456789012:role/REPLACE_WITH_SALESFORCE_PRINCIPAL"
+
+# Private targets for Salesforce-to-AWS calls. Replace with real application IPs.
+outbound_target_ips = ["10.30.10.20", "10.30.10.21"]
+outbound_listener_port = 443
+outbound_target_port   = 443
+
+# Set to the source CIDRs confirmed for your Salesforce Private Connect configuration.
+# Empty means the NLB security group allows no inbound traffic until explicitly configured.
+outbound_service_ingress_cidrs = []
+
+resolver_rule_association_vpc_ids = []
+alarm_actions = []
+
+tags = {
+  Owner      = "network-platform"
+  CostCenter = "REPLACE-ME"
+  DataClass  = "internal"
+}
