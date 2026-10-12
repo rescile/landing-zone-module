@@ -6,10 +6,6 @@ local providerName = if std.isArray(target) then target[0].name else target;
 local provider = providerLib(std.asciiLower(providerName));
 local parent = std.asciiUpper(std.join('-', std.slice(std.split(source.name, '-'), 0, 3)));
 
-//local secret = ["compute", "database", "iam", "vpn"];
-//local certificate = ["compute", "storage", "database", "kubernetes", "loadbalancer", "dns", "iam", "vpn", "connectivity"];
-
-
 rescile.createResource(
   origin='service',
   createFrom=rescile.createFromProperty('accounts', asName='wallet'),
