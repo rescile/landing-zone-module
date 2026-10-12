@@ -7,10 +7,22 @@ filename = "{{ origin_resource.name }}.json"
 mimetype = "application/json"
 template = """
 {
+    "data": {
+        "aws_vpc": {
+        "parent": {
+            "filter": [
+            {
+                "name": "tag:Name",
+                "values": ["{{- origin_resource.network[0].name -}}"]
+            }
+            ]
+        }
+        }
+    },
     "resource": {
         "aws_subnet": {
         "{{ origin_resource.name }}": {
-            "vpc_id": "tbd",
+            "vpc_id": "${data.aws_vpc.parent.id}",
             "cidr_block": "{{ origin_resource.cidr }}",
             "availability_zone": "{{ origin_resource.availability_zone }}",
             "map_public_ip_on_launch": false,
