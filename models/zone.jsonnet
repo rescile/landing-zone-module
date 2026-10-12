@@ -41,7 +41,7 @@ local provider = providerLib(std.asciiLower(providerName));
       ],
       match=[{
         'and': [
-          [rescile.eq('class', 'private'),
+          [rescile.eq('class', 'private')],
           [rescile.neq('name', 'management.local')],
           [rescile.neq('name', 'service.local')],
         ],
