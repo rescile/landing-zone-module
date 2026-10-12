@@ -6,7 +6,7 @@ resource_type = "avaloq_source_artifact"
 name = "tf-{{ origin_resource.name }}"
 filename = "{{ origin_resource.name }}.json"
 mimetype = "application/json"
-template = """
+template = '''
     {
     "resource": {
         "aws_subnet": {
@@ -22,4 +22,4 @@ template = """
         }
     }
     }
-"""
+'''
