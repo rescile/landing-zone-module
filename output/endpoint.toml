@@ -24,7 +24,7 @@ template = """
     "aws_vpc_endpoint": {
       "salesforce": {
         "vpc_id": "${data.aws_vpc.parent.id}",
-        "service_name": "${var.salesforce_endpoint_service_name}",
+        "service_name": "{{- origin_resource.network.name -}}",
         "vpc_endpoint_type": "Interface",
         "subnet_ids": "${aws_subnet.private[*].id}",
         "security_group_ids": [
