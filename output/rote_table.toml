@@ -1,0 +1,27 @@
+origin_resource = "route_table"
+
+[[output]]
+resource_type = "aws_route_table"
+name = "{{ origin_resource.name }}"
+filename = "{{ origin_resource.name }}.tf.json"
+mimetype = "application/json"
+template = """
+{
+  "resource": {
+    "aws_route_table": {
+      "private": {
+        "count": 2,
+        "vpc_id": "${aws_vpc.salesforce.id}",
+        "tags": "${merge(var.common_tags, { Name = \"${var.name_prefix}-private-rt-${count.index + 1}\" })}"
+      }
+    },
+    "aws_route_table_association": {
+      "private": {
+        "count": 2,
+        "subnet_id": "${aws_subnet.private[count.index].id}",
+        "route_table_id": "${aws_route_table.private[count.index].id}"
+      }
+    }
+  }
+}
+"""

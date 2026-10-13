@@ -17,10 +17,12 @@ rescile.createResource(
     firewall: '{{- params.fw -}}',
     subnet: '{{- params.subn -}}',
     gateway: '{{- params.gtw -}}',
+    endpoint: '{{- endpoints -}}',
     description: 'The {{- origin_resource.class | lower -}} network is an virtual, on-demand infrastructure that connects users and applications to computing resources like servers, storage, and software, all delivered over the internet.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
   match=[rescile.eq('class', 'network')]
 ) + {
-segments: '{{- params.net | lib(path="network.rhai", function="cidr_split_n", n= params.acc | length) | __rescile_safe_print -}}'
+segments: '{{- params.net | lib(path="network.rhai", function="cidr_split_n", n= params.acc | length) | __rescile_safe_print -}}',
+endpoints: import 'endpoint.json',
 }
