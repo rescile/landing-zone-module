@@ -26,6 +26,15 @@
     "default_action": "allow",
     "description": "Allows unrestricted outbound traffic to assigned network zones."
   },
+  "unrestricted-tcp-ingress": {
+    "function": "ingress",
+    "protocol": "tcp",
+    "port": 0,
+    "enable": true,
+    "stateful": true,
+    "default_action": "allow",
+    "description": "Allows unrestricted inbound traffic to assigned network zones."
+  },
   "dns-tcp-egress": {
     "function": "egress",
     "protocol": "tcp",
