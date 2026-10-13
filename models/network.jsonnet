@@ -17,7 +17,6 @@ rescile.createResource(
     firewall: '{{- params.fw -}}',
     subnet: '{{- params.subn -}}',
     gateway: '{{- params.gtw -}}',
-    endpoint: '{{- endpoints -}}',
     description: 'The {{- origin_resource.class | lower -}} network is an virtual, on-demand infrastructure that connects users and applications to computing resources like servers, storage, and software, all delivered over the internet.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
