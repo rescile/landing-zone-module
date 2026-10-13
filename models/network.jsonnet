@@ -24,5 +24,4 @@ rescile.createResource(
   match=[rescile.eq('class', 'network')]
 ) + {
 segments: '{{- params.net | lib(path="network.rhai", function="cidr_split_n", n= params.acc | length) | __rescile_safe_print -}}',
-endpoints: import 'endpoints.json',
 }
