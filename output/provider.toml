@@ -1,7 +1,7 @@
 origin_resource = "subuscription"
 
 [[output]]
-resource_type = "aws_provider"
+resource_type = "aws_tf_output"
 name = "{{ origin_resource.name }}"
 filename = "{{ origin_resource.name }}-provider.tf.json"
 mimetype = "application/json"

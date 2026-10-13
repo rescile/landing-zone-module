@@ -1,7 +1,7 @@
 origin_resource = "enpoint"
 
 [[output]]
-resource_type = "aws_endpoint"
+resource_type = "aws_tf_output"
 name = "{{ origin_resource.name }}"
 filename = "{{ origin_resource.name }}.tf.json"
 mimetype = "application/json"
