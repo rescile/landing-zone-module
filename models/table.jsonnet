@@ -15,6 +15,7 @@ rescile.createResource(
   properties={
     class: '{{- origin_resource.class | lower -}}',
     region: '{{ origin_resource.region }}',
+    source: parent,
     description: 'The route table contains a set of rules, called routes, that determines where network traffic is directed from subnets or gateways within a network.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
