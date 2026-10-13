@@ -31,7 +31,7 @@ template = """
         "private": {
             "count": 2,
             "vpc_id": "${data.aws_vpc.parent.id}",
-            "cidr_block": "{{- origin_resource.subnet.cidr -}}",
+            "cidr_block": "{{- origin_resource.cidr -}}",
             "availability_zone": "${local.endpoint_azs[count.index]}",
             "map_public_ip_on_launch": false,
             "tags": {
