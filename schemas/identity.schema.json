@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "schema_id": "Base Subscription Module",
+  "schema_id": "Identity",
   "version": "0.0.1",
-  "description": "A base subscription provides a enables a consistent and repeatable provisioning process for multi-cloud environments.",
+  "description": "tbd.",
   "resources": {
     "identity": {
       "description": "",
@@ -15,16 +15,12 @@
         },
         "role": {
           "type": "string"
-        },
-        "active": {
-          "type": "boolean"
         }
       },
       "required": [
         "uid",
         "name",
-        "role",
-        "active"
+        "role"
       ],
       "type": "object",
       "relations": {},
