@@ -1,3 +1,5 @@
+schemas = ["./schemas/identity.schema.json"]
+
 [module]
 name = "Landing Zone Module"
 url = "https://github.com/rescile/landing-zone-module"
