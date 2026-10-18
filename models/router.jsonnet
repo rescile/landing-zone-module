@@ -13,12 +13,12 @@ local bgp = '172.16.0.1/30';
     origin='service',
     resourceType='router',
     relationType='DERIVED_FROM',
-    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-' + std.get(provider.decode, 'router', ''),
+    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-' + provider.getResource('router'),
     properties={
       class: '{{- origin_resource.class | lower -}}',
       provider: std.asciiLower(provider.name),
       bgp: bgp,
-      description: 'The ' + provider.name + '{{ origin_resource.class | lower }} virtual ' + std.get(provider.decode, 'router', '') + ' analyzes incoming data packets, determines the best path for them to travel across interconnected networks, and forwards them toward their intended destination.',
+      description: 'The ' + provider.name + '{{ origin_resource.class | lower }} virtual ' + provider.getResource('router') + ' analyzes incoming data packets, determines the best path for them to travel across interconnected networks, and forwards them toward their intended destination.',
       created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
     },
     match=[rescile.eq('class', 'connectivity')]
