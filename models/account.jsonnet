@@ -19,7 +19,8 @@ rescile.createResource(
     //template = "Core" # Only AWS
     provider: std.asciiLower(provider.name),
     service: provider.portfolio,
-    description: 'The ' + provider.name + ' ' + provider.getResource("account") + ' defines an independently manageable IAM security boundary for the {{ origin_resource.name | upper }} subscription that enables a centralized management and grants authorized access to resources, services and configurations.',
+    description: 'The ' + provider.name + ' ' + std.get(provider.decode, 'account', '') + ' defines an independently manageable IAM security boundary for the {{ origin_resource.name | upper }} subscription that enables a centralized management and grants authorized access to resources, services and configurations.',
+    //description: 'The ' + provider.name + ' ' + provider.getResource("account") + ' defines an independently manageable IAM security boundary for the {{ origin_resource.name | upper }} subscription that enables a centralized management and grants authorized access to resources, services and configurations.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
 ) + {
