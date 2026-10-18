@@ -11,7 +11,7 @@ rescile.createResource(
   createFrom=rescile.createFromProperty('kubernetes', asName='kubernetes'),
   resourceType='kubernetes',
   relationType='DERIVED_FROM',
-  name=std.asciiLower(provider.name)  + '-' + provider.decode.kubernetes + '-{{- value | lower -}}-cluster',
+  name=std.asciiLower(provider.name)  + '-' + provider.getResource('kubernetes') + '-{{- value | lower -}}-cluster',
   properties={
     class: '{{- origin_resource.class | lower -}}',
     login: ['kubernetes-administrator', 'auditor'],
