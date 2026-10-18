@@ -7,6 +7,11 @@ version = "0.0.1"
 description = "The AWS provider module adds the configuration schemas and properties required by a landing zone blueprint to interact with and manage AWS infrastructure APIs."
 rescile_version = ">=0.1.201"
 
+#[params.provider]
+#description = "tbd."
+#required = true
+#default = "aws"
+
 #[params.solution]
 #description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
 #required = true

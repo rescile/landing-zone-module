@@ -2,6 +2,7 @@ local aws = import 'aws.libsonnet';
 local azure = import 'azure.libsonnet';
 local oci = import 'oci.libsonnet';
 local google = import 'google.libsonnet';
+local incus = import 'incus.libsonnet';
 local empty = import 'empty.libsonnet';
 
 function(name)
@@ -9,5 +10,5 @@ function(name)
   else if name == 'azure' then azure
   else if name == 'oci' then oci
   else if name == 'google' then google
-  //else error 'Unsupported provider: ' + name
+  else if name == 'incus' then incus
   else empty
