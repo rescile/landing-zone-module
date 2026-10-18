@@ -11,12 +11,12 @@ rescile.createResource(
   createFrom=rescile.createFromProperty('database', asName='database'),
   resourceType='database',
   relationType='DERIVED_FROM',
-  name=std.asciiLower(provider.name)  + '-' + provider.decode.database + '-{{- value | lower -}}-instance',
+  name=std.asciiLower(provider.name)  + '-' + provider.getResource('database') + '-{{- value | lower -}}-instance',
   properties={
     class: '{{- origin_resource.class | lower -}}',
     login: ['database-administrator', 'auditor'],
     component: ["RDBMS","Serverless","NoSQL","Memcached"],
-    description: 'A ' + provider.decode.database + ' instance provided by ' + provider.name + ' is deployed, and accessed through a cloud computing environment. Instead of purchasing, installing, and maintaining physical database hardware in an on-premises data center, organizations run database workloads on public, private, or hybrid cloud platforms.',
+    description: 'A ' + provider.getResource('database') + ' instance provided by ' + provider.name + ' is deployed, and accessed through a cloud computing environment. Instead of purchasing, installing, and maintaining physical database hardware in an on-premises data center, organizations run database workloads on public, private, or hybrid cloud platforms.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
   match=[rescile.eq('class', 'database')]
