@@ -10,7 +10,7 @@ local provider = providerLib(std.asciiLower(providerName));
     origin='network',
     resourceType='gateway',
     relationType='DEFINED_BY',
-    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-' + provider.decode.gateway,
+    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-' + provider.getResource('gateway'),
     properties={
       class: '{{- origin_resource.class | lower -}}',
       description: 'The class: {{- origin_resource.class | lower -}} gateway is a network node that connects two different networks with dissimilar architectures and protocols so that data can flow between them.',
@@ -22,7 +22,7 @@ local provider = providerLib(std.asciiLower(providerName));
     createFrom=rescile.createFromProperty('gateway', asName='gateway'),
     resourceType='gateway',
     relationType='DERIVED_FROM',
-    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-{{ value }}_' + provider.decode.gateway,
+    name=std.asciiLower(provider.name)  + '-{{ params.solution | lower }}-{{ value }}_' + provider.getResource('gateway'),
     properties={
       class: '{{- origin_resource.class | lower -}}',
       description: 'The {{ value | lower }} gateway is a network node that connects two different networks with dissimilar architectures and protocols so that data can flow between them.',
