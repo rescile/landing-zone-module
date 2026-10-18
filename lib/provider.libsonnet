@@ -6,12 +6,9 @@ local incus = import 'incus.libsonnet';
 local oci = import 'oci.libsonnet';
 
 function(name)
-  local selected =
-    if name == 'aws' then aws
-    else if name == 'azure' then azure
-    else if name == 'oci' then oci
-    else if name == 'google' then google
-    else if name == 'incus' then incus
-    else empty;
-
-  empty + selected
+  if name == 'aws' then aws
+  else if name == 'azure' then azure
+  else if name == 'oci' then oci
+  else if name == 'google' then google
+  else if name == 'incus' then incus
+  else empty
