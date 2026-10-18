@@ -4,7 +4,7 @@ schemas = ["./schemas/identity.schema.json"]
 name = "Landing Zone Module"
 url = "https://github.com/rescile/landing-zone-module"
 version = "0.0.1"
-description = "The AWS provider module adds the configuration schemas and properties required by a landing zone blueprint to interact with and manage AWS infrastructure APIs."
+description = "The UCS landing zone It acts as the foundational blueprint and enterprise baseline before you deploy production workloads or migrate applications."
 rescile_version = ">=0.1.201"
 
 #[params.provider]
