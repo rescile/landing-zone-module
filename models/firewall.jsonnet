@@ -11,7 +11,7 @@ rescile.createResource(
   createFrom=rescile.createFromProperty('firewall', asName='firewall'),
   resourceType='firewall',
   relationType='DERIVED_FROM',
-  name=parent + '-{{ value }}-' + provider.decode.firewall,
+  name=parent + '-{{ value }}-' + provider.getResource('firewall'),
   properties={
     class: '{% if value == "internet" %}public{% else %}private{% endif %}',
     filter: '{% if value == "internet" %}[{{- filters["https-tcp-egress"] -}}, {{- filters["https-tcp-ingress"] -}}]{% else %}[{{- filters["unrestricted-tcp-egress"] -}}, {{- filters["dns-udp-ingress"] -}}, {{- filters["dns-tcp-ingress"] -}}]{% endif %}',

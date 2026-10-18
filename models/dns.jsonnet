@@ -12,7 +12,7 @@ local class = std.asciiLower(source.class);
     origin='service',
     resourceType='dns',
     relationType='BASELINE_TEMPLATE',
-    name=std.asciiLower(provider.name)  + '-' + provider.decode.dns + '-private-service',
+    name=std.asciiLower(provider.name)  + '-' + provider.getResource('dns') + '-private-service',
     properties={
       class: 'private',
       login: ['dns-administrator', 'auditor'],
@@ -28,7 +28,7 @@ local class = std.asciiLower(source.class);
     origin='service',
     resourceType='dns',
     relationType='BASELINE_TEMPLATE',
-    name=std.asciiLower(provider.name)  + '-' + provider.decode.dns + '-public-service',
+    name=std.asciiLower(provider.name)  + '-' + provider.getResource('dns') + '-public-service',
     properties={
       class: 'public',
       login: ['dns-administrator', 'auditor'],

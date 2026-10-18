@@ -10,7 +10,7 @@ rescile.createResource(
   createFrom=rescile.createFromProperty('accounts', asName='network'),
   resourceType='network',
   relationType='DEPENDS_ON',
-  name=std.asciiLower(provider.name) + '-{{- value | lower -}}-' + provider.decode.network,
+  name=std.asciiLower(provider.name) + '-{{- value | lower -}}-' + provider.getResource('network'),
   properties={
     class: '{{- origin_resource.class | lower -}}',
     segment: '{{- segments[property.index] -}}',

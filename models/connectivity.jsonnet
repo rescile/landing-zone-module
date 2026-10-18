@@ -10,11 +10,11 @@ rescile.createResource(
   origin='service',
   resourceType='connectivity',
   relationType='DERIVED_FROM',
-  name=std.asciiLower(provider.name) + '-{{ params.solution | lower }}-' + provider.decode.connectivity,
+  name=std.asciiLower(provider.name) + '-{{ params.solution | lower }}-' + provider.getResource('connectivity'),
   properties={
     class: '{{- origin_resource.class | lower -}}',
     login: ['connectivity-administrator', 'auditor'],
-    description: 'The ' + provider.decode.connectivity + ' interface provided by ' + provider.name + ' is a wide area network service that provides a dedicated, private connections from on-premises to a colocation facility.',
+    description: 'The ' + provider.getResource('connectivity') + ' interface provided by ' + provider.name + ' is a wide area network service that provides a dedicated, private connections from on-premises to a colocation facility.',
     created: '{{- now(utc=true) | date(format="%Y-%m-%dT%H:%M:%SZ") -}}',
   },
   match=[rescile.eq('class', 'connectivity')]

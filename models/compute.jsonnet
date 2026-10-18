@@ -11,7 +11,7 @@ rescile.createResource(
   createFrom=rescile.createFromProperty('compute', asName='compute'),
   resourceType='compute',
   relationType='DERIVED_FROM',
-  name=std.asciiLower(provider.name) + '-' + provider.decode.compute + '-{{- value | lower -}}-instance',
+  name=std.asciiLower(provider.name) + '-' + provider.getResource('compute') + '-{{- value | lower -}}-instance',
   properties={
     class: '{{- origin_resource.class | lower -}}',
     login: ['compute-administrator', 'auditor'],
