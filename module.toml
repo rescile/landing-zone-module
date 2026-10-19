@@ -7,21 +7,25 @@ version = "0.0.1"
 description = "The UCS landing zone serves a foundational blueprint to deploy production workloads or migrate applications to a hybrid cloud."
 rescile_version = ">=0.1.201"
 
-[params.provider]
-description = "Providers deliver part of an organization’s IT services, they operate IT functions for a customer under contract, such as infrastructure operations, monitoring, service desk, or security and supply infrastructure, platforms, or software."
+[params.tenant]
+description = "The tenant represents the organization that owns a service."
 required = true
-domain = "cloud" # We distinguish edge, cloud, wan and core service domains
-default = "aws"
+default = "Corp"
 
 [params.solution]
 description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
 required = true
 default = "Solution"
 
-[params.tenant]
-description = "The tenant represents the organization that owns a service."
+[params.domain]
+description = "A domain is a distinct area of the IT landscape defined by its location, technology, and operating characteristics, with its own ownership, responsibilities, and management and security requirements, while still being part of one end-to-end service."
 required = true
-default = "Corp"
+default = "cloud"
+
+[params.provider]
+description = "Providers deliver part of an organization’s IT services, they operate IT functions for a customer under contract, such as infrastructure operations, monitoring, service desk, or security and supply infrastructure, platforms, or software."
+required = true
+default = "aws"
 
 #[params.hm]
 #description = "A cloud home or primary region is the specific geographic datacenter location where a user's, organization's, or resource's core account data, metadata, and primary services are officially hosted and anchored."

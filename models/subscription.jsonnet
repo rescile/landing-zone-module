@@ -7,6 +7,7 @@ rescile.createResource(
   name='{{ params.provider | lower }}-{{ params.tenant | upper }}-{{ params.solution | upper }}',
   properties={
     provider: '{{ params.provider | lower }}',
+    domain: '{{ params.domain | lower }}',
     class: '{{- params.solution | lower -}}',
     home: '{{- params.hm | lower -}}',
     account: '{{- params.acc -}}',
