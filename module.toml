@@ -4,23 +4,24 @@ schemas = ["./schemas/identity.schema.json"]
 name = "Landing Zone Module"
 url = "https://github.com/rescile/landing-zone-module"
 version = "0.0.1"
-description = "The UCS landing zone It acts as the foundational blueprint and enterprise baseline before you deploy production workloads or migrate applications."
+description = "The UCS landing zone serves a foundational blueprint to deploy production workloads or migrate applications to a hybrid cloud."
 rescile_version = ">=0.1.201"
 
-#[params.provider]
-#description = "tbd."
-#required = true
-#default = "aws"
+[params.provider]
+description = "Providers deliver part of an organization’s IT services, they operate IT functions for a customer under contract, such as infrastructure operations, monitoring, service desk, or security and supply infrastructure, platforms, or software."
+required = true
+domain = "cloud" # We distinguish edge, cloud, wan and core service domains
+default = "aws"
 
-#[params.solution]
-#description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
-#required = true
-#default = "Finance"
+[params.solution]
+description = "A freeform name describing the service that is deployed, this entry is used for naming conventions."
+required = true
+default = "Solution"
 
-#[params.tenant]
-#description = "The tenant represents the organization that owns a service."
-#required = true
-#default = "Corp"
+[params.tenant]
+description = "The tenant represents the organization that owns a service."
+required = true
+default = "Corp"
 
 #[params.hm]
 #description = "A cloud home or primary region is the specific geographic datacenter location where a user's, organization's, or resource's core account data, metadata, and primary services are officially hosted and anchored."
