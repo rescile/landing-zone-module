@@ -24,7 +24,7 @@ default = "cloud"
 
 [params.provider]
 description = "Providers deliver part of an organization’s IT services, they operate IT functions for a customer under contract, such as infrastructure operations, monitoring, service desk, or security and supply infrastructure, platforms, or software."
-required = true, 'EDU', 'TST'
+required = true
 default = "aws"
 
 [params.hm]
